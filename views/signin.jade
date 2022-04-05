@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    .content
+      ul
+        li
+          h2 UNO
+        li
+          button Sign Up
+      .elem
+        .logo
+          h1 Signin to your account
+          form(action='/signin', method='post')
+            input(type='text', name='email', placeholder='Email')
+            input(type='password', name='password', placeholder='Password')
+            input(type='submit', value='Sign In')
+
+    link(rel='stylesheet', href='/stylesheets/signin.css')

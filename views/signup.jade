@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    .content
+      ul
+        li
+          h2 UNO
+        li
+          button Sign In
+      .elem
+        .logo
+          h1 Create your account
+          form(action='/signup', method='post')
+            input(type='text', name='email', placeholder='Email')
+            input(type='text', name='username', placeholder='Username')
+            input(type='password', name='password', placeholder='Password')
+            input(type='password', name='password2', placeholder='Confirm Password')
+            input(type='submit', value='Sign Up')
+
+    link(rel='stylesheet', href='/stylesheets/signup.css')
