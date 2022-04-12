@@ -96,6 +96,8 @@
 
 .chat > ul {
   flex: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
   border: 1px lightgray solid;
   border-radius: 4px;
   margin-bottom: 4px;
