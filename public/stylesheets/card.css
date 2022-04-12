@@ -9,7 +9,7 @@
   display: table;
   box-sizing: border-box;
   padding: 5px;
-  margin: -40px;
+  margin: -35px;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 100px;
   text-shadow:
@@ -25,6 +25,21 @@
   box-shadow: 0 0 10px #aaaaaa;
   text-align: center;
   position: relative;
+
+  transition-duration: 0.1s;
+}
+
+.card:hover {
+  transform: scale(1.1) rotate(-0.02turn);
+  margin: -10px;
+  outline: solid rgba(38, 132, 255, 0.63) 6px;
+  box-shadow: 0px 0px 11px 4px rgba(38, 132, 255, 0.63);
+  margin-bottom: -50px;
+  transition-duration: 0.1s;
+}
+
+.card.back {
+  margin: -45px;
 }
 
 .card .inner {
@@ -43,6 +58,7 @@
   border-radius: 100px 60px / 120px 60px;
   line-height: 1.4;
   font-size: 12pt;
+  transform: rotate(35);
 }
 .card .mark {
   display: inline-block;
