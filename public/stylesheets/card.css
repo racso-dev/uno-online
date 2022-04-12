@@ -9,7 +9,7 @@
   display: table;
   box-sizing: border-box;
   padding: 5px;
-  margin: -30px;
+  margin: -40px;
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 100px;
   text-shadow:
@@ -34,6 +34,16 @@
   overflow: hidden;
 }
 
+.card .back-mark {
+  display: inline-block;
+  vertical-align: middle;
+  background: #ffffff;
+  margin: auto;
+  padding: 0 26px;
+  border-radius: 100px 60px / 120px 60px;
+  line-height: 1.4;
+  font-size: 12pt;
+}
 .card .mark {
   display: inline-block;
   vertical-align: middle;
@@ -72,6 +82,14 @@
   bottom: 15px;
   right: 10px;
   -webkit-transform: rotate(180deg)
+}
+
+.card.back {
+  color: #171718;
+}
+
+.card.back .inner {
+  background: #171718;
 }
 
 .card.blue {

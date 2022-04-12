@@ -45,6 +45,8 @@
 
 .center > .center-top {
   flex: 1;
+  transform: scaleY(-1);
+  transform: scaleX(-1);
 }
 
 .center > .heap {
