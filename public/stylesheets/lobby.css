@@ -41,7 +41,6 @@
   flex-direction: column;
   align-items: stretch;
   justify-content: stretch;
-  background-color: green;
 }
 
 .center > .center-top {
@@ -62,6 +61,23 @@
 .right-half {
   flex: 1;
   background-color: blue;
+}
+
+.deck {
+  display: flex;
+}
+
+.card {
+  height: 150px;
+  width: 90px;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 4px;
+  margin-left: -55px;
+}
+
+.card.first {
+  margin-left: 0;
 }
 
 
