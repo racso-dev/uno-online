@@ -1,0 +1,18 @@
+.bg {
+    background: radial-gradient(circle at center, #a71d16, #76120d);
+}
+
+.navbar-brand
+{
+  font-size: 3rem;
+}
+
+.navbar {
+    font-size:2rem;
+}
+
+.main-img {
+    margin-bottom: 5%;
+    width: 35%; 
+    height: auto;
+}
