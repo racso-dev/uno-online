@@ -10,6 +10,10 @@ router.get('/lobby', function(req, res, next) {
   res.render('lobby', { title: 'Express' });
 });
 
+router.get('/prompt', function(req, res, next) {
+  res.render('prompt', { title: 'Express' });
+});
+
 // router.get('/signup', function(req, res, next) {
 //   res.render('signup', { title: 'Express' });
 // });

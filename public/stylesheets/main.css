@@ -1,18 +1,47 @@
-.bg {
-    background: radial-gradient(circle at center, #a71d16, #76120d);
+html {
+    height: 100%;
 }
 
-.navbar-brand
-{
-  font-size: 3rem;
+body {
+    background: radial-gradient(circle at center, #be261e, #64100b);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.adjust-fill {
+    margin-top: -8%;
+}
+
+.navbar-brand {
+    font-size: 3rem;
 }
 
 .navbar {
-    font-size:2rem;
+    font-size: 2rem;
 }
 
 .main-img {
     margin-bottom: 5%;
-    width: 35%; 
+    width: 35%;
     height: auto;
+}
+
+.prompt {
+    margin: auto !important;
+    width: 226px !important;
+    height: 328px !important;
+    padding: 4%;
+}
+
+.prompt-space-2 {
+    padding: 6%;
+}
+
+.prompt-text {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin-left: 10%;
+    margin-right: 10%;
 }
