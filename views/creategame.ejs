@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head'); %>
+        <link rel="stylesheet" href="/stylesheets/card.css">
+</head>
+
+<body>
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+
+    <div class="container-fluid adjust-fill d-flex flex-grow-1">
+        <div class="d-flex flex-grow-1 justify-content-center align-items-center">
+            <form action="/creategame" method="post">
+                <h1 class="py-3 text-center">Room Name</h1>
+                <div class="form-group was-validated input-group-lg py-3">
+                    <input id="roomname" name="roomname" type="text" class="form-control" required>
+                </div>
+                <h1 class="py-3">Number of Players</h1>
+                <div class="form-group was-validated input-group-lg py-3">
+                    <input id="numplayers" name="numplayers" type="text" class="form-control" required>
+                </div>
+                <div class="row">
+                    <div class="col py-3 d-flex justify-content-start">
+                        <a href="/prompt">
+                            <button type="button" class="btn fw-bold btn-outline-light btn-lg">Cancel</button>
+                        </a>
+                    </div>
+                    <div class="col py-3 d-flex justify-content-end">
+                        <input type="submit" class="btn fw-bold btn-outline-light btn-lg" value="Start">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
