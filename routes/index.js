@@ -14,9 +14,9 @@ router.get('/prompt', function(req, res, next) {
   res.render('prompt', { title: 'Express' });
 });
 
-// router.get('/signup', function(req, res, next) {
-//   res.render('signup', { title: 'Express' });
-// });
+router.get('/register', function(req, res, next) {
+  res.render('register', { title: 'Express' });
+});
 
 router.get('/login', function(req, res, next) {
  res.render('login', { title: 'Express' });
