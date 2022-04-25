@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head'); %>
+</head>
+
+<body>
+    <header>
+        <%- include('partials/header'); %>
+    </header>
+
+    <div class="container-fluid adjust-fill d-flex flex-grow-1">
+        <div class="d-flex flex-grow-1 justify-content-center align-items-center">
+            <form action="/login" method="post">
+                <h1 class="py-3">Welcome Back!</h1>
+                <!-- username -->
+                <div class="form-group was-validated input-group-lg py-3">
+                    <input id="username" name="username" type="text" class="form-control"
+                        placeholder="Your Username" required>
+                </div>
+                <!-- password -->
+                <div class="form-group was-validated input-group-lg py-3">
+                    <input id="password" name="password" type="password" class="form-control"
+                        placeholder="Password" required>
+                </div>
+                <!-- submit -->
+                <div class="row">
+                    <div class="col py-3 d-flex justify-content-start">
+                        <input type="submit" class="btn fw-bold btn-outline-light btn-lg" value="Register">
+                    </div>
+                    <div class="col py-3 d-flex justify-content-end">
+                        <input type="submit" class="btn fw-bold btn-outline-light btn-lg" value="Login">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
