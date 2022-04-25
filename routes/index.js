@@ -18,6 +18,10 @@ router.get('/creategame', function(req, res, next) {
   res.render('creategame', { title: 'Express' });
 });
 
+router.get('/joingame', function(req, res, next) {
+  res.render('joingame', { title: 'Express' });
+});
+
 router.get('/register', function(req, res, next) {
   res.render('register', { title: 'Express' });
 });

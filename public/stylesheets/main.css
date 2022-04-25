@@ -7,6 +7,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
 h1 {
@@ -35,7 +36,7 @@ h1 {
     margin: auto !important;
     width: 226px !important;
     height: 328px !important;
-    padding: 4%;
+    padding: 4% !important;
 }
 
 .prompt-space-2 {
@@ -47,4 +48,30 @@ h1 {
     font-weight: 300;
     margin-left: 10%;
     margin-right: 10%;
+}
+
+.lobby-list {
+    background: black;
+    border: 10px solid white;
+    border-radius: 10px;
+    width: 50%;
+    height: 50%;
+}
+
+.lobby-list-item {
+    height: 20%;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(176, 173, 173);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(214, 211, 211);
+    border-radius: 10px;
 }
