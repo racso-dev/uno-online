@@ -3,7 +3,7 @@ const db = require('./index');
 const create = (user) => {
   return db.one(
     `INSERT INTO "Users" (email, password, username) VALUES ($1, $2, $3) RETURNING *`,
-    [user.email, user.password, user.username]
+    [user.email, user.hash, user.username]
   );
 };
 
