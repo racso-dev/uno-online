@@ -4,7 +4,7 @@ if (process.env.NODE_ENV === "development") {
 }
 const connection = pgp({
   connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false },
+  ssl: false,
 });
 
 module.exports = connection;
