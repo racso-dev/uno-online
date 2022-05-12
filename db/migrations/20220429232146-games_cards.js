@@ -4,6 +4,10 @@ const db = require('../index');
 module.exports = {
   async up(queryInterface, Sequelize) {
     return queryInterface.createTable(db.tables.GAMES_CARDS, {
+      card_id: {
+        type: Sequelize.UUID,
+        primaryKey: true,
+      },
       game_id: {
         type: Sequelize.UUID,
         primaryKey: true,
