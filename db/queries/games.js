@@ -2,6 +2,8 @@ const db = require('../index');
 const { v4: uuidv4 } = require('uuid');
 
 const _this = {
+  format: (game) => {},
+
   create: async (game) => {
     const res = await db.connection.oneOrNone(
       `INSERT INTO "${db.tables.GAMES}" (id, name, set_number_of_players, current_number_of_players, current_player_id, admin_id) VALUES ($1, $2, $3, $4, $5, $5) RETURNING *`,

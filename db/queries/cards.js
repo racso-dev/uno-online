@@ -3,30 +3,29 @@ const { v4: uuidv4 } = require('uuid');
 
 const create = (user) => {
   return db.connection.one(
-    `INSERT INTO "Users" (id, email, password, username) VALUES ($1, $2, $3, $4) RETURNING *`,
+    `INSERT INTO "${db.tables.CARDS}" (id, email, password, username) VALUES ($1, $2, $3, $4) RETURNING *`,
     [uuidv4(), user.email, user.hash, user.username]
   );
 };
 
-const findByEmail = (email) => {
-  return db.connection.oneOrNone(`SELECT * FROM "Users" WHERE email = $1`, [
-    email,
-  ]);
-};
-
 const findById = (id) => {
-  return db.connection.oneOrNone(`SELECT * FROM "Users" WHERE id = $1`, [id]);
+  return db.connection.oneOrNone(
+    `SELECT * FROM "${db.tables.CARDS}" WHERE id = $1`,
+    [id]
+  );
 };
 
-const update = (user) => {
+const updateOwner = (cardId, ownerId) => {
   return db.connection.one(
-    `UPDATE "Users" SET email = $1, password = $2, username = $3 WHERE id = $4 RETURNING *`,
-    [user.email, user.password, user.username, user.id]
+    `UPDATE "${db.tables.CARDS}" SET owner_id = $1 WHERE id = $2 RETURNING *`,
+    [ownerId, cardId]
   );
 };
 
 const deleteOne = (id) => {
-  return db.connection.none(`DELETE FROM "Users" WHERE id = $1`, [id]);
+  return db.connection.none(`DELETE FROM "${db.tables.CARDS}" WHERE id = $1`, [
+    id,
+  ]);
 };
 
 module.exports = {
