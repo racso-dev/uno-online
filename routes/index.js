@@ -33,6 +33,7 @@ router.get('/register', function (req, res, next) {
 });
 
 router.get('/login', function (req, res, next) {
+  console.log('JE PASSSESESEESESEE');
   res.render('login', { title: 'Express' });
 });
 

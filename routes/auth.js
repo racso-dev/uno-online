@@ -26,6 +26,7 @@ router.post('/signin', async (req, res, next) => {
 router.post('/signup', async (req, res, next) => {
   const { email, password, username } = req.body;
   // console.log(req.body)
+  console.log('REQUEST SINGUP');
   const emailRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
@@ -51,6 +52,7 @@ router.post('/signup', async (req, res, next) => {
   const hash = await Utils.hashPassword(password);
   const user = await queries.Users.create({ email, hash, username });
   const accessToken = Utils.issueJWT(user);
+  // return res.redirect('/joingame');
   return res.status(201).json(accessToken);
 });
 
