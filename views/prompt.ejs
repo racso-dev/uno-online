@@ -1,38 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%- include('partials/head'); %>
+    <link rel="stylesheet" href="/stylesheets/card.css" />
+  </head>
 
-<head>
-  <%- include('partials/head'); %>
-    <link rel="stylesheet" href="/stylesheets/card.css">
-</head>
+  <body>
+    <header><%- include('partials/header'); %></header>
 
-<body>
-  <header>
-    <%- include('partials/header'); %>
-  </header>
-
-  <div class="container-fluid adjust-fill d-flex flex-grow-1">
-    <div class="row row-cols-auto d-flex flex-grow-1 justify-content-center align-items-center">
-      <div class="col prompt-space-2">
-        <a href="/creategame">
-          <div class="card back prompt">
-            <span class="inner">
-              <h1 class="prompt-text">Create Game</h1>
-            </span>
-          </div>
-        </a>
-      </div>
-      <div class="col prompt-space-2">
-        <a href="/joingame">
-          <div class="card back prompt">
-            <span class="inner">
-              <h1 class="prompt-text">Join Game</h1>
-            </span>
-          </div>
-        </a>
+    <div class="container-fluid adjust-fill d-flex flex-grow-1">
+      <div
+        class="row row-cols-auto d-flex flex-grow-1 justify-content-center align-items-center"
+      >
+        <div class="col prompt-space-2">
+          <a href="/creategame">
+            <div class="card back prompt">
+              <span class="inner">
+                <h1 class="prompt-text">Create Game</h1>
+              </span>
+            </div>
+          </a>
+        </div>
+        <div class="col prompt-space-2">
+          <a href="/gamelist">
+            <div class="card back prompt">
+              <span class="inner">
+                <h1 class="prompt-text">Join Game</h1>
+              </span>
+            </div>
+          </a>
+        </div>
       </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
