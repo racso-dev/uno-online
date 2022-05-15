@@ -21,6 +21,16 @@ router.post('/', auth, async (req, res, next) => {
     });
     console.log('CREATED GAME ====', game);
     game = await queries.Games.addUserToGame(game.id, req.user.id);
+
+
+    const io = req.app.get('socketio');
+    io.emit(JSON.stringify(
+      {
+        type: 'UPDATE_GAME_LIST',
+        payload: game,
+      }
+    ));
+
     return res.status(201).json(game);
   } catch (error) {
     next(error);
@@ -43,6 +53,7 @@ router.post('/:gameId', auth, async (req, res, next) => {
 router.get('/', auth, async (req, res, next) => {
   try {
     const games = await queries.Games.findAll();
+
 
     return res.status(200).json(games);
   } catch (error) {

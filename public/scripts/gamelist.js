@@ -35,6 +35,10 @@ const initSocketIO = async () => {
       }
     });
 
+    socket.on('UPDATE_GAME_LIST', (message) => {
+      console.log(message)
+    });
+
     socket.emit('GET_GAME_LIST', {
       Authorization: window.localStorage.getItem('token'),
     });

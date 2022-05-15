@@ -4,6 +4,7 @@
 <head>
     <%- include('partials/head'); %>
         <link rel="stylesheet" href="/stylesheets/card.css">
+    <script defer src="/scripts/creategame.js"></script>
 </head>
 
 <body>
@@ -13,14 +14,14 @@
 
     <div class="container-fluid adjust-fill d-flex flex-grow-1">
         <div class="d-flex flex-grow-1 justify-content-center align-items-center">
-            <form action="/creategame" method="post">
+            <form id="creategame" action="/games" method="post">
                 <h1 class="py-3 text-center">Room Name</h1>
                 <div class="form-group was-validated input-group-lg py-3">
-                    <input id="roomname" name="roomname" type="text" class="form-control" required>
+                    <input id="name" name="name" type="text" class="form-control" required>
                 </div>
                 <h1 class="py-3">Number of Players</h1>
                 <div class="form-group was-validated input-group-lg py-3">
-                    <input id="numplayers" name="numplayers" type="text" class="form-control" required>
+                    <input id="number_of_players" name="numplayers" type="text" class="form-control" required>
                 </div>
                 <div class="row">
                     <div class="col py-3 d-flex justify-content-start">
