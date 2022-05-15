@@ -1,4 +1,5 @@
 const express = require('express');
+const { Socket } = require('socket.io');
 const router = express.Router();
 const queries = require('../db/queries/index');
 const auth = require('../middlewares/auth');
@@ -21,6 +22,11 @@ router.post('/', auth, async (req, res, next) => {
     });
     console.log('CREATED GAME ====', game);
     game = await queries.Games.addUserToGame(game.id, req.user.id);
+
+
+    const io = req.app.get('socketio');
+    io.emit('UPDATE_GAME_LIST', {'game': game});
+
     return res.status(201).json(game);
   } catch (error) {
     next(error);
@@ -43,6 +49,10 @@ router.post('/:gameId', auth, async (req, res, next) => {
 router.get('/', auth, async (req, res, next) => {
   try {
     const games = await queries.Games.findAll();
+
+    const io = req.app.get('socketio');
+    io.emit('hi!', 'hi!!');
+
     return res.status(200).json(games);
   } catch (error) {
     next(error);

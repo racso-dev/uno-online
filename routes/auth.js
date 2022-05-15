@@ -52,7 +52,7 @@ router.post('/signup', async (req, res, next) => {
   const hash = await Utils.hashPassword(password);
   const user = await queries.Users.create({ email, hash, username });
   const accessToken = Utils.issueJWT(user);
-  // return res.redirect('/joingame');
+  // return res.redirect('/gamelist');
   return res.status(201).json(accessToken);
 });
 

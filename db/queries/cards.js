@@ -22,6 +22,12 @@ const updateOwner = (cardId, ownerId) => {
   );
 };
 
+const findAll = async () => {
+  return await db.connection.manyOrNone(
+    `SELECT label, color FROM "${db.tables.CARDS}"`
+  );
+};
+
 const deleteOne = (id) => {
   return db.connection.none(`DELETE FROM "${db.tables.CARDS}" WHERE id = $1`, [
     id,
@@ -30,8 +36,7 @@ const deleteOne = (id) => {
 
 module.exports = {
   create,
-  findByEmail,
+  findAll,
   findById,
-  update,
   deleteOne,
 };
