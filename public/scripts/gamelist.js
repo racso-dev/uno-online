@@ -23,27 +23,22 @@ window.addEventListener('load', async (event) => {
     console.log('GAME $$$$$$$$$$=======', game);
     gameList.appendChild(initGameDiv(games[game]));
   }
-  // const form = event.currentTarget;
-  // const url = form.action;
-
-  try {
-    // const formData = new FormData(form);
-    // const plainFormData = Object.fromEntries(formData.entries());
-    // const formDataJsonString = JSON.stringify(plainFormData);
-    // console.log(formDataJsonString);
-    // console.log(`Bearer ${window.localStorage.getItem('token')}`);
-    // fetch(url, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: window.localStorage.getItem('token'),
-    //   },
-    //   body: formDataJsonString,
-    // })
-    //   .then((data) => data.json())
-    //   .then((data) => console.log(data))
-    //   .catch((err) => console.error(err));
-  } catch (error) {
-    console.error(error);
-  }
 });
+
+const initSocketIO = async () => {
+  const socket = io();
+  socket.on('connect', () => {
+    console.log('client side socket connection established');
+    socket.on('UPDATE_GAME_LIST', (games) => {
+      for (const game in games) {
+        gameList.appendChild(initGameDiv(games[game]));
+      }
+    });
+
+    socket.emit('GET_GAME_LIST', {
+      Authorization: window.localStorage.getItem('token'),
+    });
+  });
+};
+
+initSocketIO();

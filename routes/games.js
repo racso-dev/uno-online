@@ -43,6 +43,7 @@ router.post('/:gameId', auth, async (req, res, next) => {
 router.get('/', auth, async (req, res, next) => {
   try {
     const games = await queries.Games.findAll();
+
     return res.status(200).json(games);
   } catch (error) {
     next(error);
