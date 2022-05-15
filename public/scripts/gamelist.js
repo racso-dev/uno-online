@@ -29,19 +29,16 @@ const initSocketIO = async () => {
   const socket = io();
   socket.on('connect', () => {
     console.log('client side socket connection established');
-    socket.on('UPDATE_GAME_LIST', (games) => {
-      for (const game in games) {
-        gameList.appendChild(initGameDiv(games[game]));
-      }
+    socket.on('hi!', (message) => {
+      console.log(message);
     });
 
     socket.on('UPDATE_GAME_LIST', (message) => {
-      console.log(message)
+      // console.log("game list updated !!!!!!!!!!!!!!" );
+      // console.log(message)
+      gameList.appendChild(initGameDiv(message.game));
     });
 
-    socket.emit('GET_GAME_LIST', {
-      Authorization: window.localStorage.getItem('token'),
-    });
   });
 };
 
