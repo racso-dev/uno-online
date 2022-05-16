@@ -57,8 +57,17 @@ class Decks {
     while (domElements.rightDeck.firstChild) {
       domElements.rightDeck.removeChild(domElements.rightDeck.firstChild);
     }
-    for (let i = 0; i < this.gameState.otherPlayers.length; i++) {
-      for (let j = 0; j < this.gameState.otherPlayers[i]; j++) {
+    // Sort opponent's decks by id to make sure the decks are always in the same
+    // position
+    const sortedById = this.gameState.otherPlayers.sort((a, b) =>
+      a.id.localeCompare(b.id)
+    );
+
+    for (let i = 0; i < sortedById.length; i++) {
+      // set that player's deck's id to the player's id
+      domElements[fillOrderList[i]].setAttribute("data-player-id", sortedById[i].id);
+
+      for (let j = 0; j < sortedById[i].numCards; j++) {
         const tag = document.createElement("div");
         tag.classList.add("card", "back");
         tag.innerHTML =
@@ -78,11 +87,24 @@ class Decks {
     lastPlayedCard.firstElementChild.firstElementChild.innerHTML =
       this.gameState.lastPlayed.value;
   }
+
+  drawCurrentPlayerOutline() {
+    let player = document.querySelector(
+      `[data-player-id="${this.gameState.turnId}"]`
+    );
+    if (player === null) {
+      player = domElements.playerDeck;
+    }
+    // get player's parent element
+    const parent = player.parentElement;
+    parent.classList.add("current-player");
+  }
 }
 
 window.addEventListener("load", async () => {
   // TODO: fetch base game state here. In the meantime, just hardcode it.
   const gameState = {
+    turnId: "23423-f23443-2343847234-234234",
     lastPlayed: { color: "blue", value: "8" },
     playerDeck: [
       { color: "blue", value: "7" },
@@ -93,12 +115,13 @@ window.addEventListener("load", async () => {
     ],
     otherPlayers: [
       // the numbers here define the number of cards an opponent has in their deck
-      3,
-      5,
+      { id: "23423-f23443-23423847234-234234", numCards: 3 },
+      { id: "56798-348579-s3049590834-349577", numCards: 5 },
     ],
   };
   const decks = new Decks(gameState);
   decks.placeLastPlayedCard();
   decks.buildPlayerDeck();
   decks.buildOtherPlayerDecks();
+  decks.drawCurrentPlayerOutline();
 });

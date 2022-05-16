@@ -43,6 +43,13 @@
   height: 100%;
 }
 
+.current-player {
+  outline: solid rgba(38, 132, 255, 0.63) 6px;
+  box-shadow: 0px 0px 11px 4px rgba(38, 132, 255, 0.63);
+  border-radius: 16px;
+  background-color: rgb(188, 217, 255);
+}
+
 .left-rotate {
   transform: rotateZ(90deg);
 }
