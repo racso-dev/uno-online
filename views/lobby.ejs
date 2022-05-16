@@ -8,6 +8,8 @@
   <title>Lobby</title>
   <link rel="stylesheet" href="/stylesheets/lobby.css">
   <link rel="stylesheet" href="/stylesheets/card.css">
+  <script defer src="/scripts/lobby.js"></script>
+  <script defer src="/scripts/lobby_chat.js"></script>
 </head>
 
 <body>
@@ -15,10 +17,20 @@
     <div class="game">
       <div class="board">
         <div class="left-half">
+          <div class="left">
+            <div id="left-deck" class="deck left-rotate">
+              <div class="card back">
+                <span class="inner">
+                  <span class="back-mark">UNO</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
         </div>
         <div class="center">
           <div class="center-top center-content">
-            <div class="deck">
+            <div id="top-deck" class="deck">
               <div class="card back">
                 <span class="inner">
                   <span class="back-mark">UNO</span>
@@ -57,60 +69,27 @@
             </div>
           </div>
           <div class="heap center-content">
-            <div class="card num-6 green">
+            <div id="last-played-card" class="card num-6 green">
               <span class="inner">
                 <span class="mark">6</span>
               </span>
             </div>
           </div>
           <div class="center-bottom center-content">
-            <div class="deck">
-              <div class="card num-4 blue">
-                <span class="inner">
-                  <span class="mark">4</span>
-                </span>
-              </div>
-
-              <div class="card num-5 blue">
-                <span class="inner">
-                  <span class="mark">5</span>
-                </span>
-              </div>
-
-              <div class="card num-5 green">
-                <span class="inner">
-                  <span class="mark">5</span>
-                </span>
-              </div>
-
-              <div class="card num-5 red">
-                <span class="inner">
-                  <span class="mark">5</span>
-                </span>
-              </div>
-
-              <div class="card num-5 yellow">
-                <span class="inner">
-                  <span class="mark">5</span>
-                </span>
-              </div>
-
-              <div class="card num-6 yellow">
-                <span class="inner">
-                  <span class="mark">6</span>
-                </span>
-              </div>
-
-
-              <div class="card num-9 blue">
-                <span class="inner">
-                  <span class="mark">9</span>
-                </span>
-              </div>
+            <div id="player-deck" class="deck">
             </div>
           </div>
         </div>
         <div class="right-half">
+          <div class="right">
+            <div id="right-deck" class="deck right-rotate">
+              <div class="card back">
+                <span class="inner">
+                  <span class="back-mark">UNO</span>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <button class="say-uno">
@@ -130,87 +109,21 @@
 
 
 
-    <div class="chat">
-      <div class="chat-header">
-        <span>Chat</span>
-      </div>
-      <ul>
-        <li>Message 1</li>
-        <li>Message 2</li>
-        <li>Message 3</li>
-        <li>Message 4</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
-        <li>Message 5</li>
+    <div id="chat" class="chat">
+      <ul id="messages" class="messages">
+        <div style="margin-top: auto"></div>
+        <li>
+          <p>player1</p>
+          <p>hellooo</p>
+        </li>
+        <li>
+          <p>player1</p>
+          <p>hellooo</p>
+        </li>
       </ul>
       <div class="message-box">
-        <input type="text">
-        <button>Send</button>
+        <input placeholder="Send a message" type="text">
+        <button>SEND</button>
       </div>
     </div>
   </div>
