@@ -1,6 +1,12 @@
 // Deck filling order besides player deck since the player's deck will always be
 // the first and at the bottom
 
+const fillOrderList = [
+  "topDeck",
+  "leftDeck",
+  "rightDeck",
+];
+
 const fillOrder = {
   "topDeck": "top-deck",
   "leftDeck": "left-deck",
@@ -35,12 +41,12 @@ class Decks {
       domElements.rightDeck.removeChild(domElements.rightDeck.firstChild);
     }
     for (let i = 0; i < this.gameState.otherPlayers.length; i++) {
-      for (let j = 0; j < this.gameState.otherPlayers[i].numCards; j++) {
+      for (let j = 0; j < this.gameState.otherPlayers[i]; j++) {
         const tag = document.createElement("div");
         tag.classList.add("card", "back");
         tag.innerHTML =
           `<span class="inner"><span class="back-mark">UNO</span></span>`;
-        domElements[this.gameState.otherPlayers[i].position].appendChild(tag);
+        domElements[fillOrderList[i]].appendChild(tag);
       }
     }
   }
@@ -70,8 +76,9 @@ window.addEventListener("load", async () => {
       { color: "blue", value: "8" },
     ],
     otherPlayers: [
-      { position: "topDeck", numCards: 3 },
-      { position: "leftDeck", numCards: 5 },
+      // the numbers here define the number of cards an opponent has in their deck
+      3,
+      5,
     ],
   };
   const decks = new Decks(gameState);
