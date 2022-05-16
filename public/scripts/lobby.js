@@ -28,6 +28,23 @@ class Decks {
   }
 
   buildPlayerDeck() {
+    // Remove all cards in the player's deck first
+    while (domElements.playerDeck.firstChild) {
+      domElements.playerDeck.removeChild(domElements.playerDeck.firstChild);
+    }
+    // Then add the new cards
+    for (let i = 0; i < this.gameState.playerDeck.length; i++) {
+      const cardElement = document.createElement("div");
+      cardElement.classList.add(
+        "card",
+        `num-${this.gameState.playerDeck[i].value}`,
+        this.gameState.playerDeck[i].color,
+      );
+      cardElement.innerHTML = `<span class="inner"><span class="mark">${
+        this.gameState.playerDeck[i].value
+      }</span></span>`;
+      domElements.playerDeck.appendChild(cardElement);
+    }
   }
 
   buildOtherPlayerDecks() {
@@ -73,7 +90,6 @@ window.addEventListener("load", async () => {
       { color: "red", value: "3" },
       { color: "yellow", value: "5" },
       { color: "blue", value: "6" },
-      { color: "blue", value: "8" },
     ],
     otherPlayers: [
       // the numbers here define the number of cards an opponent has in their deck
