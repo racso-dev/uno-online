@@ -8,6 +8,7 @@
   <title>Lobby</title>
   <link rel="stylesheet" href="/stylesheets/lobby.css">
   <link rel="stylesheet" href="/stylesheets/card.css">
+  <script defer src="/scripts/lobby.js"></script>
 </head>
 
 <body>
@@ -15,10 +16,25 @@
     <div class="game">
       <div class="board">
         <div class="left-half">
+          <div class="left">
+            <div id="left-deck" class="deck left-rotate">
+              <div class="card back">
+                <span class="inner">
+                  <span class="back-mark">UNO</span>
+                </span>
+              </div>
+              <div class="card back">
+                <span class="inner">
+                  <span class="back-mark">UNO</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
         </div>
         <div class="center">
           <div class="center-top center-content">
-            <div class="deck">
+            <div id="top-deck" class="deck">
               <div class="card back">
                 <span class="inner">
                   <span class="back-mark">UNO</span>
@@ -63,7 +79,7 @@
               </span>
             </div>
           </div>
-          <div class="center-bottom center-content">
+          <div id="player-deck" class="center-bottom center-content">
             <div class="deck">
               <div class="card num-4 blue">
                 <span class="inner">
@@ -111,6 +127,20 @@
           </div>
         </div>
         <div class="right-half">
+          <div class="right">
+            <div id="right-deck" class="deck right-rotate">
+              <div class="card back">
+                <span class="inner">
+                  <span class="back-mark">UNO</span>
+                </span>
+              </div>
+              <div class="card back">
+                <span class="inner">
+                  <span class="back-mark">UNO</span>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <button class="say-uno">

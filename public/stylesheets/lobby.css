@@ -32,7 +32,33 @@
 
 .left-half {
   flex: 1;
+  align-items: center;
 }
+
+.left {
+  /* flex: 1; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.left-rotate {
+  transform: rotateZ(90deg);
+}
+
+.right {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.right-rotate {
+  transform: rotateZ(270deg);
+}
+
 
 .center {
   flex: 4;
