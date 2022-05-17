@@ -6,20 +6,22 @@ module.exports = {
     return queryInterface.createTable(db.tables.GAMES_CARDS, {
       card_id: {
         type: Sequelize.UUID,
-        primaryKey: true,
       },
       game_id: {
         type: Sequelize.UUID,
-        primaryKey: true,
       },
       owner_id: {
         type: Sequelize.UUID,
-        primaryKey: true,
+        allowNull: true,
       },
       is_discarded: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false,
+      },
+      is_draw_pile: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
       },
     });
   },

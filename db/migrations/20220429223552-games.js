@@ -26,6 +26,16 @@ module.exports = {
       admin_id: {
         type: Sequelize.UUID,
       },
+      is_started: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
+      is_finished: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
