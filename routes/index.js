@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const db = require('../db');
+const auth = require('../middlewares/auth');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -36,5 +37,10 @@ router.get('/login', function (req, res, next) {
   console.log('JE PASSSESESEESESEE');
   res.render('login', { title: 'Express' });
 });
+
+router.post('/sendmessage', auth, async (req, res, next) => {
+  const io = req.app.get('socketio');
+  io.emit('chat_message', {username: req.user.username, body: req.body.message});
+})
 
 module.exports = router;

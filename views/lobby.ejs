@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/stylesheets/card.css">
   <script defer src="/scripts/lobby.js"></script>
   <script defer src="/scripts/lobby_chat.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
 </head>
 
 <body>
@@ -74,8 +75,8 @@
         <div style="margin-top: auto"></div>
       </ul>
       <div class="message-box">
-        <input placeholder="Send a message" type="text">
-        <button>SEND</button>
+        <input id="message-input" placeholder="Send a message" type="text">
+        <button id="send-message-button">SEND</button>
       </div>
     </div>
   </div>
