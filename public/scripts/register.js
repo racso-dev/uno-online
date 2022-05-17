@@ -15,6 +15,8 @@ form.addEventListener('submit', async (event) => {
       body: formDataJsonString,
     }).then((data) => data.json());
     window.localStorage.setItem('token', res.accessToken);
+    // Redirect to /lobby
+    window.location.href = '/';
   } catch (error) {
     console.error(error);
   }
