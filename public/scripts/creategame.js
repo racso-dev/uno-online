@@ -7,7 +7,7 @@ form.addEventListener('submit', async (event) => {
     const formData = new FormData(form);
     const plainFormData = Object.fromEntries(formData.entries());
     const formDataJsonString = JSON.stringify(plainFormData);
-    const res = await fetch('http://localhost:3000/games', {
+    const res = await fetch('/games', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
