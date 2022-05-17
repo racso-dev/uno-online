@@ -88,6 +88,43 @@ const _this = {
     return await ret;
   },
 
+  startGame: (game_id) => {
+    return db.connection.one(
+      `UPDATE "${db.tables.GAMES}" SET is_started = $1 WHERE id = $2 RETURNING *`,
+      [true, game_id]
+    );
+  },
+
+  initGameCards: async (game_id) => {
+    const cards = await db.connection.manyOrNone(
+      `SELECT * FROM "${db.tables.CARDS}"`
+    );
+    const cardsId = cards.map((card) => card.id);
+    const res = [];
+    for (const cardId of cardsId) {
+      res.push(
+        await db.connection.one(
+          `INSERT INTO "${db.tables.GAMES_CARDS}" (card_id, game_id, owner_id, is_discarded, is_draw_pile) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+          [cardId, game_id, null, false, true]
+        )
+      );
+    }
+    return res;
+  },
+
+  findPlayersInGame: async (game_id) => {
+    return await db.connection.manyOrNone(
+      `SELECT user_id FROM "${db.tables.USERS_GAMES}" WHERE game_id = $1 `,
+      [game_id]
+    );
+    // const gameUsers = await db.connection.manyOrNone(
+    //   `SELECT user_id FROM "${db.tables.USERS_GAMES}" WHERE game_id = $1 `,
+    //   [game_id]
+    // );
+    // return gameUsers.map((user) => {
+    //   return user.user_id;
+    // });
+  },
   deleteOne: (id) => {
     return db.connection.none(
       `DELETE FROM "${db.tables.GAMES}" WHERE id = $1`,
