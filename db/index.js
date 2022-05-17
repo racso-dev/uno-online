@@ -8,6 +8,7 @@ const connection = pgp({
   connectionString: process.env.DATABASE_URL,
   password: process.env.DATABASE_PASSWORD,
   ssl: process.env.NODE_ENV === 'development' ? false : true,
+  sslRejectUnauthorized: false,
 });
 
 module.exports = { connection, tables };
